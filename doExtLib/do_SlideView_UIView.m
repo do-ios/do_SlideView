@@ -648,11 +648,25 @@
         }else if((contentSize-p.x)/pageWidth>.95&&(contentSize-p.x)/pageWidth<=1.05){
             _direction = -1;
             x = pageWidth*(_currentPage-1);
-        }else
+        }else{
             x = p.x+pageWidth*_direction;
+        }
         self.scrollEnabled = NO;
+        
+        if (x < 0) {
+            x = fabs(x);
+            x = round(x/pageWidth)*pageWidth;
+        }
+        else if (x/pageWidth > ([_dataArray GetCount]-1)) {
+            x = ([_dataArray GetCount]-1)*pageWidth;
+        }
+        else {
+            x = round(x/pageWidth)*pageWidth;
+        }
+        
         //    isDrag=YES;
-        x = round(x/pageWidth)*pageWidth;
+        //        x = round(x/pageWidth)*pageWidth;
+        
         NSValue *value = [NSValue valueWithCGRect:CGRectMake(x, 0, pageWidth, CGRectGetHeight(self.frame))];
         [self scrollRectToVisible:[value CGRectValue] animated:YES];
     });
