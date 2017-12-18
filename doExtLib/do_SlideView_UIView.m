@@ -25,6 +25,7 @@
 
 #define MIN_VALUE 0
 
+
 @interface do_SlideView_UIView ()<UIScrollViewDelegate>
 @property (nonatomic , assign) int currentPage;
 @end
