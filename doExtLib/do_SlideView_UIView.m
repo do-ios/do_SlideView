@@ -653,18 +653,6 @@
             x = p.x+pageWidth*_direction;
         }
         self.scrollEnabled = NO;
-        
-        if (x < 0) {
-            x = fabs(x);
-            x = round(x/pageWidth)*pageWidth;
-        }
-        else if (x/pageWidth > ([_dataArray GetCount]-1)) {
-            x = ([_dataArray GetCount]-1)*pageWidth;
-        }
-        else {
-            x = round(x/pageWidth)*pageWidth;
-        }
-        
         //    isDrag=YES;
         //        x = round(x/pageWidth)*pageWidth;
         
